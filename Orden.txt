@@ -1,0 +1,15 @@
+Crear base de datos de usuarios con la opción de ser admin o usser.
+
+El admin debe poder ver los datos de los usuarios y sus competencias
+
+Empecemos por la BD.
+
+El usser solo vería una hoja en blanco.
+
+Hagamos una tabla con la información del usuario y otra sobre sus competencias (Solo funciona si es usuario, no admin)
+
+Debe distinguir entre admin y usuario en base a las credenciales.
+
+Agreguemos metodos de seguridad como encriptamientos.
+
+Si es posible, agreguemos diseño dinamico, mejoremos lo que saquemos en Blazor.
