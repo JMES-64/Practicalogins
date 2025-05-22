@@ -1,4 +1,4 @@
---CREATE DATABASE DB_PR
+CREATE DATABASE DB_PR
 
 USE DB_PR
 --Se crea al usuario
