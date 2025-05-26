@@ -1,8 +1,13 @@
+using LogIn_ADO.NET_Version.Data;
+using LogIn_ADO.NET_Version.Data.Interfaz;
+using LogIn_ADO.NET_Version.Data.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<Conect>();
+builder.Services.AddScoped < InterUsser, ServiceUsser > ();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

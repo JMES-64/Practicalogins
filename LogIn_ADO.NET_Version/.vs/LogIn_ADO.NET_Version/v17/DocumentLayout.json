@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\models\\usser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\models\\usser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\data\\service\\serviceusser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\data\\service\\serviceusser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\models\\competencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\models\\competencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\controllers\\ussercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\controllers\\ussercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "competencia.cs",
-              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Models\\competencia.cs",
-              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Models\\competencia.cs",
-              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Models\\competencia.cs",
-              "RelativeToolTip": "LogIn_ADO.NET_Version\\Models\\competencia.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
+              "Title": "usserController.cs",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAABwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T20:42:42.621Z",
+              "WhenOpened": "2025-05-26T00:41:28.996Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "usser.cs",
-              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Models\\usser.cs",
-              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Models\\usser.cs",
-              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Models\\usser.cs",
-              "RelativeToolTip": "LogIn_ADO.NET_Version\\Models\\usser.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
+              "Title": "ServiceUsser.cs",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABAAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T20:40:55.983Z",
+              "WhenOpened": "2025-05-25T23:36:31.946Z",
               "EditorCaption": ""
             }
           ]

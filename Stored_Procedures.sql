@@ -72,16 +72,18 @@ GO
 --En este script, se permitirá visualizar la información del usuario, ignorando por completo a los que son Admins
 
 CREATE PROCEDURE ListarC
+(
+@IDU int
+)
 AS BEGIN
 SELECT
 c.IDU,
 c.Nombre_C,
 c.Comp
-FROM competencia c
+FROM competencia c WHERE @IDU = IDU
 END
 GO
 --En este script se mostrará las competencias relacionadas al usuario, se conserva la muestra del ID para identificar facilmente al usuario
-
 CREATE PROCEDURE ListarAU
 AS BEGIN
 SELECT
