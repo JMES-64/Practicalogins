@@ -8,15 +8,19 @@ GO
 CREATE PROCEDURE RegistraU(
 @Nombre varchar(50),
 @Correo varchar(50),
-@Pass varchar(max)
+@Pass varchar(max),
+@Adm bit,
+@Own bit
 )
 AS BEGIN
-INSERT INTO usser(Nombre,Correo,Pass)
+INSERT INTO usser(Nombre,Correo,Pass, Adm,Own)
 VALUES
 (
 @Nombre,
 @Correo,
-@Pass
+@Pass,
+@Adm,
+@Own
 )END
 GO
 --Este procedimiento nos permitirá guardar los usuarios, sean admins o no
@@ -41,19 +45,22 @@ CREATE PROCEDURE RegistraAU(
 @Nombre varchar(50),
 @Correo varchar(50),
 @Pass varchar(max),
-@Adm bit
+@Adm bit,
+@Own bit
 )
 AS
 BEGIN
-INSERT INTO usser(Nombre,Correo,Pass,Adm)
+INSERT INTO usser(Nombre,Correo,Pass,Adm,Own)
 VALUES
 (
 @Nombre,
 @Correo,
 @Pass,
-@Adm
+@Adm,
+@Own
 )END
 GO
+
 --Con este procedimiento, el owner podrá registrar nuevos admins o usuarios si así lo desea, pero no otro owner
 
 --Ahora, vamos a incorportar las listas de usuarios para su visualización
@@ -90,7 +97,6 @@ SELECT
 u.IDU,
 u. Nombre,
 u.Correo,
-u.Pass,
 u.Adm
 FROM usser u WHERE u.Own=0
 END

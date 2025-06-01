@@ -1,6 +1,8 @@
 ﻿using LogIn_ADO.NET_Version.Models;
 using System.ComponentModel;
 using Microsoft.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LogIn_ADO.NET_Version.Data.Service
 {
@@ -21,7 +23,6 @@ namespace LogIn_ADO.NET_Version.Data.Service
                     // Crea una conexión a la base de datos usando la cadena de conexión  
                     var oComando = new SqlCommand("ListarU", connection)
                     {
-                        // Especifica que el comando es un procedimiento almacenado
                         CommandType = System.Data.CommandType.StoredProcedure
                         // Especifica que el comando es un procedimiento almacenado
 
@@ -43,14 +44,128 @@ namespace LogIn_ADO.NET_Version.Data.Service
 
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return lista; // Retorna la lista vacía en caso de error
             }
             return lista;
         }
 
+        public async Task<List<usser>> ListaAU()
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            var lista = new List<usser>();
+            // Crea una lista donde almacenar los usuarios y admins
 
+            try
+            {
+
+                var connection = new SqlConnection(connector.GetSQLChain());
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("ListarAU", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await using (var oReader = await oComando.ExecuteReaderAsync())
+                {
+                    while (await oReader.ReadAsync())
+                    {
+                        lista.Add(new usser
+                        {
+                            IDU = Convert.ToInt32(oReader["IDU"]),
+                            Nombre = oReader["Nombre"]?.ToString() ?? string.Empty, // Manejo de referencia nula  
+                            Correo = oReader["Correo"]?.ToString() ?? string.Empty, // Manejo de referencia nula  
+                            Adm = Convert.ToInt32(oReader["Adm"]),
+                        });
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return lista; // Retorna la lista vacía en caso de error
+
+            }
+            return lista;
+
+        }
+
+        public async Task<usser> CreateU(usser cuser)
+        {
+
+            var connector = new Conect();
+            //Otorga una variable a la función
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("RegistraU", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@Nombre", cuser.Nombre);
+                oComando.Parameters.AddWithValue("@Correo", cuser.Correo);
+                oComando.Parameters.AddWithValue("@Pass", Encrypt.EncryptPassword(cuser.Pass));
+                oComando.Parameters.AddWithValue("@Adm", 0);
+                oComando.Parameters.AddWithValue("@Own", 0);
+                // Agrega los parámetros necesarios para el procedimiento almacenado
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+
+            return cuser; // Retorna el objeto 'usser' creado
+        }
+
+        public async Task<usser> CreateAU(usser cuser)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("RegistraAU", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@Nombre", cuser.Nombre);
+                oComando.Parameters.AddWithValue("@Correo", cuser.Correo);
+                oComando.Parameters.AddWithValue("@Pass", Encrypt.EncryptPassword(cuser.Pass));
+                oComando.Parameters.AddWithValue("@Adm", cuser.Adm);
+                oComando.Parameters.AddWithValue("@Own", 0);
+                // Agrega los parámetros necesarios para el procedimiento almacenado
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+            return cuser; // Retorna el objeto 'usser' creado
+        }
+
+        public class Encrypt()
+        {
+            // Clase para manejar la encriptación de contraseñas
+            public static string EncryptPassword(string password)
+            {
+                // Simplifica la creación de la instancia de SHA256
+                byte[] stream = SHA256.HashData(Encoding.ASCII.GetBytes(password));
+                // Elimina la asignación innecesaria de "encoding"
+                StringBuilder sb = new();
+                // Crea un StringBuilder para construir la contraseña encriptada
+                for (int i = 0; i < stream.Length; i++)
+                {
+                    sb.AppendFormat("{0:X2}", stream[i]);
+                }
+                return sb.ToString(); // Retorna la contraseña encriptada
+            }
+        }
     }
-
     
 }

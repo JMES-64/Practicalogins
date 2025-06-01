@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<Conect>();
+// Register the Conect service to be used for database connections
 builder.Services.AddScoped < InterUsser, ServiceUsser > ();
+// Register the InterUsser interface with its implementation ServiceUsser
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

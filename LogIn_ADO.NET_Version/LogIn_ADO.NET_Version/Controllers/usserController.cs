@@ -25,6 +25,20 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             List<usser> lista;
             lista = await _interU.ListaU();
+            //Llama al método ListaU de la interfaz InterUsser para obtener la lista de usuarios
+            if (lista != null)
+            {
+                return View(lista);
+            }
+            //Verifica que haya contenido en la lista
+            return View();
+        }
+
+        public async Task<ActionResult> IndexA(usser _uss)
+        {
+            List<usser> lista;
+            lista = await _interU.ListaAU();
+            //Llama al método ListaAU de la interfaz InterUsser para obtener la lista de usuarios y administradores
             if (lista != null)
             {
                 return View(lista);
@@ -40,7 +54,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Create
-        public ActionResult Create()
+        public ActionResult CreateU()
         {
             return View();
         }
@@ -48,11 +62,35 @@ namespace LogIn_ADO.NET_Version.Controllers
         // POST: usserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateU( usser Cuser)
         {
             try
             {
+                usser Nusser = await _interU.CreateU(Cuser);
+                //Llama al método CreateU de la interfaz InterUsser para crear un nuevo usuario
                 return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: usserController/CreateA
+        public ActionResult CreateAU()
+        {
+            return View();
+        }
+
+        // POST: usserController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateAU(usser Causser)
+        {
+            try
+            {
+                usser NAUsser = await _interU.CreateAU(Causser);
+                return RedirectToAction(nameof(IndexA));
             }
             catch
             {
