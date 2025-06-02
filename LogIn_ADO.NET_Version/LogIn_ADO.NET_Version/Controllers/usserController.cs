@@ -12,10 +12,13 @@ namespace LogIn_ADO.NET_Version.Controllers
         //Conecta con la interfaz
         private readonly Conect _con;
         //Conecta con la DB
+
         public usserController(InterUsser IU, Conect Pretexto)
         {
             _interU = IU;
+            //Asigna la interfaz InterUsser a la variable _interU
             _con = Pretexto;
+            //Asigna la clase Conect a la variable _con, que se utiliza para establecer la conexión con la base de datos
         }
         //Este es el contructor para el sistema
 
@@ -99,7 +102,29 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditU(int id)
+        {
+            var Eusser = await _interU.Buscador(id);
+            return View(Eusser);
+        }
+
+        // POST: usserController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditU(usser Eusser)
+        {
+            try
+            {
+                usser NUusser = await _interU.EditU(Eusser);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult EditAU(int id)
         {
             return View();
         }
@@ -107,7 +132,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         // POST: usserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditAU(int id, IFormCollection collection)
         {
             try
             {

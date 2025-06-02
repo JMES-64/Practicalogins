@@ -1,7 +1,53 @@
 USE DB_PR
 GO
 
---Primero vamos a crear los procedimientos almacenados para registro.
+--BUSCADOR
+
+--Estas funciones buscan permitirnos encontrar un usuario o competencia en específico, con los cuales nos sea posible editar su información
+
+--Buscar usuario específico
+CREATE PROCEDURE BuscaU(
+@IDU int
+)
+AS BEGIN
+(
+SELECT 
+u.IDU,
+u.Nombre,
+u.Correo,
+u.Pass
+FROM usser u WHERE @IDU=IDU
+)END
+GO
+
+--Buscar Admins o Usuarios; exclusivo del Owner
+CREATE PROCEDURE BuscaAU(
+@IDU int
+)
+AS BEGIN(
+SELECT
+u.IDU,
+u.Nombre,
+u.Correo,
+u.Pass,
+u.Adm
+FROM usser u WHERE @IDU=IDU
+)
+END
+GO
+
+--Buscar competencias
+CREATE PROCEDURE BuscarC(
+@IDC int
+)AS BEGIN(
+SELECT 
+c.IDC,
+c.Nombre_C,
+c.Comp
+FROM competencia c WHERE @IDC=IDC
+)
+END
+GO
 
 --REGISTRO
 
@@ -141,14 +187,12 @@ CREATE PROCEDURE EditaAU
 @IDU int,
 @Nombre varchar(50),
 @Correo varchar(50),
-@Pass varchar (max),
 @Adm bit
 )
 AS BEGIN
 UPDATE usser SET
 Nombre = @Nombre,
 Correo = @Correo,
-Pass = @Pass,
 Adm = @Adm
 WHERE IDU= @IDU
 END

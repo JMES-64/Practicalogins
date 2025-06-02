@@ -9,6 +9,44 @@ namespace LogIn_ADO.NET_Version.Data.Service
     public class ServiceUsser : Interfaz.InterUsser
     {
 
+        public async Task<usser> Buscador(int Id) { 
+         var connector = new Conect();
+            //Otorga una variable a la función
+            usser user = new usser();
+            // Crea un objeto 'usser' para almacenar el usuario encontrado
+            try
+            {
+                using (var connection = new SqlConnection(connector.GetSQLChain()))
+                {
+                    // Crea una conexión a la base de datos usando la cadena de conexión  
+                    var oComando = new SqlCommand("BuscaU", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                        // Especifica que el comando es un procedimiento almacenado
+                    };
+                    oComando.Parameters.AddWithValue("@IDU", Id);
+                    await connection.OpenAsync();
+                    // Abre la conexión de forma asíncrona
+                    await using (var oReader = await oComando.ExecuteReaderAsync())
+                    {
+                        while (await oReader.ReadAsync())
+                        {
+                            user.IDU = Convert.ToInt32(oReader["IDU"]);
+                            user.Nombre = oReader["Nombre"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
+                            user.Correo = oReader["Correo"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return user; // Retorna el objeto 'usser' vacío en caso de error
+            }
+            return user;
+        }
+
+
+
         public async Task<List<usser>> ListaU()
         {
             var connector = new Conect();
@@ -149,6 +187,30 @@ namespace LogIn_ADO.NET_Version.Data.Service
             return cuser; // Retorna el objeto 'usser' creado
         }
 
+
+        public async Task<usser> EditU(usser cuser)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("EditaU", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@IDU", cuser.IDU);
+                oComando.Parameters.AddWithValue("@Nombre", cuser.Nombre);
+                oComando.Parameters.AddWithValue("@Correo", cuser.Correo);
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+            return cuser; // Retorna el objeto 'usser' editado
+        }
+
         public class Encrypt()
         {
             // Clase para manejar la encriptación de contraseñas
@@ -166,6 +228,7 @@ namespace LogIn_ADO.NET_Version.Data.Service
                 return sb.ToString(); // Retorna la contraseña encriptada
             }
         }
+
     }
     
 }
