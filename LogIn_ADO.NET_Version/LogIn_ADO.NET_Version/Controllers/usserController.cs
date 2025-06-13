@@ -105,6 +105,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         public async Task<ActionResult> EditU(int id)
         {
             var Eusser = await _interU.Buscador(id);
+            //Llama a la función de buscador para recopilar los datos relacionados al usuario a editar
             return View(Eusser);
         }
 
@@ -116,6 +117,7 @@ namespace LogIn_ADO.NET_Version.Controllers
             try
             {
                 usser NUusser = await _interU.EditU(Eusser);
+                //Llama al método EditU de la interfaz InterUsser para editar un usuario existente
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -124,19 +126,23 @@ namespace LogIn_ADO.NET_Version.Controllers
             }
         }
 
-        public ActionResult EditAU(int id)
+        public async Task<ActionResult> EditAU(int id)
         {
-            return View();
+            var EAusser = await _interU.Buscador(id);
+            //Llama a la función de buscador para recopilar los datos relacionados al usuario a editar
+            return View(EAusser);
         }
 
         // POST: usserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditAU(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAU(usser Usser)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                usser Ausser= await _interU.EditAU(Usser);
+                //Llama al método EditAU de la interfaz InterUsser para editar un usuario existente
+                return RedirectToAction(nameof(IndexA));
             }
             catch
             {
@@ -145,19 +151,46 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            var Dusser = await _interU.Buscador(id);
+            //Llama a la función de buscador para recopilar los datos relacionados al usuario a eliminar
+            return View(Dusser);
         }
 
         // POST: usserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(usser Dusser)
         {
             try
             {
+                var Borrado = await _interU.Borra(Dusser.IDU);
+                //Llama al método Borra de la interfaz InterUsser para eliminar un usuario existente
                 return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public async Task<ActionResult> DeleteAU(int id)
+        {
+            var Dusser = await  _interU.Buscador(id);
+            //Llama a la función de buscador para recopilar los datos relacionados al usuario a eliminar
+            return View(Dusser);
+        }
+
+        // POST: usserController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteAU(usser Dusser)
+        {
+            try
+            {
+                var Borrado = _interU.Borra(Dusser.IDU);
+                //Llama al método Borra de la interfaz InterUsser para eliminar un usuario existente
+                return RedirectToAction(nameof(IndexA));
             }
             catch
             {

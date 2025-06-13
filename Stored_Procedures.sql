@@ -5,23 +5,8 @@ GO
 
 --Estas funciones buscan permitirnos encontrar un usuario o competencia en específico, con los cuales nos sea posible editar su información
 
---Buscar usuario específico
-CREATE PROCEDURE BuscaU(
-@IDU int
-)
-AS BEGIN
-(
-SELECT 
-u.IDU,
-u.Nombre,
-u.Correo,
-u.Pass
-FROM usser u WHERE @IDU=IDU
-)END
-GO
-
 --Buscar Admins o Usuarios; exclusivo del Owner
-CREATE PROCEDURE BuscaAU(
+CREATE PROCEDURE Buscar(
 @IDU int
 )
 AS BEGIN(
@@ -204,23 +189,13 @@ GO
 
 --ELIMINAR
 
-CREATE PROCEDURE EliminaAU(
+CREATE PROCEDURE Elimina(
 @IDU int
 )
 AS BEGIN
 DELETE FROM competencia WHERE IDU = @IDU
-DELETE FROM usser WHERE IDU = @IDU and Own=0
+DELETE FROM usser WHERE IDU = @IDU
 
 END 
 GO
 --Este procedimiento permitirá al owner eliminar al usuario sea admin o no, incluyendo sus competencias
-
-CREATE PROCEDURE EliminaU(
-@IDU int
-)
-AS BEGIN
-DELETE FROM competencia WHERE IDU = @IDU
-DELETE FROM usser WHERE IDU = @IDU and Adm = 0
-END
-GO
---En este procedimiento, se nos permitirá eliminar al usuario, pero no del admin

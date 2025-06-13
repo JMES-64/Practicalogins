@@ -9,12 +9,16 @@ namespace LogIn_ADO.NET_Version.Data.Interfaz
         public Task<List<usser>> ListaU();
         // Define un método asíncrono que devuelve una lista de objetos 'usser'
         public Task<List<usser>> ListaAU();
-        Task<usser> CreateU(usser cuser);
+        public Task<usser> CreateU(usser cuser);
         // Define un método asíncrono que crea un nuevo usuario y devuelve el objeto 'usser' creado
-        Task<usser> CreateAU(usser cuser);
+        public Task<usser> CreateAU(usser cuser);
         // Define un método asíncrono que crea un nuevo usuario administrador y devuelve el objeto 'usser' creado
-        Task<usser> EditU(usser cuser);
+        public Task<usser> EditU(usser cuser);
         // Define un método asíncrono que actualiza un usuario existente y devuelve el objeto 'usser' actualizado
+        public Task<usser> EditAU(usser cuser);
+        // Define un método asíncrono que actualiza un usuario administrador existente y devuelve el objeto 'usser' actualizado
+        public Task<usser> Borra(int Id);
+        // Define un método asíncrono que elimina un usuario por su ID y devuelve el objeto 'usser' eliminado
 
     }
 }

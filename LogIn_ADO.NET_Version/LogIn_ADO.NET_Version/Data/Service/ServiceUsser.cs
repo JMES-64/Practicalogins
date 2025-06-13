@@ -9,8 +9,10 @@ namespace LogIn_ADO.NET_Version.Data.Service
     public class ServiceUsser : Interfaz.InterUsser
     {
 
+        
+
         public async Task<usser> Buscador(int Id) { 
-         var connector = new Conect();
+        var connector = new Conect();
             //Otorga una variable a la función
             usser user = new usser();
             // Crea un objeto 'usser' para almacenar el usuario encontrado
@@ -19,7 +21,7 @@ namespace LogIn_ADO.NET_Version.Data.Service
                 using (var connection = new SqlConnection(connector.GetSQLChain()))
                 {
                     // Crea una conexión a la base de datos usando la cadena de conexión  
-                    var oComando = new SqlCommand("BuscaU", connection)
+                    var oComando = new SqlCommand("Buscar", connection)
                     {
                         CommandType = System.Data.CommandType.StoredProcedure
                         // Especifica que el comando es un procedimiento almacenado
@@ -34,6 +36,7 @@ namespace LogIn_ADO.NET_Version.Data.Service
                             user.IDU = Convert.ToInt32(oReader["IDU"]);
                             user.Nombre = oReader["Nombre"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
                             user.Correo = oReader["Correo"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
+                            user.Adm = Convert.ToInt32(oReader["Adm"]);
                         }
                     }
                 }
@@ -44,8 +47,6 @@ namespace LogIn_ADO.NET_Version.Data.Service
             }
             return user;
         }
-
-
 
         public async Task<List<usser>> ListaU()
         {
@@ -210,6 +211,55 @@ namespace LogIn_ADO.NET_Version.Data.Service
             }
             return cuser; // Retorna el objeto 'usser' editado
         }
+
+        public async Task<usser> EditAU(usser cuser)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("EditaAU", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@IDU", cuser.IDU);
+                oComando.Parameters.AddWithValue("@Nombre", cuser.Nombre);
+                oComando.Parameters.AddWithValue("@Correo", cuser.Correo);
+                oComando.Parameters.AddWithValue("@Adm", cuser.Adm);
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+            return cuser; // Retorna el objeto 'usser' editado
+        }
+
+
+    public async Task<usser> Borra(int Id)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("Elimina", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@IDU", Id);
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+            return new usser { IDU = Id }; // Retorna un objeto 'usser' con el ID del usuario eliminado
+        }
+
+
 
         public class Encrypt()
         {
