@@ -10,21 +10,19 @@ namespace LogIn_ADO.NET_Version.Controllers
     {
         private readonly InterUsser _interU;
         //Conecta con la interfaz
-        private readonly Conect _con;
-        //Conecta con la DB
 
-        public usserController(InterUsser IU, Conect Pretexto)
+
+        public usserController(InterUsser IU)
         {
             _interU = IU;
-            //Asigna la interfaz InterUsser a la variable _interU
-            _con = Pretexto;
-            //Asigna la clase Conect a la variable _con, que se utiliza para establecer la conexión con la base de datos
+            //Asigna la interfaz InterUsser a la variable _interU}
         }
         //Este es el contructor para el sistema
-
+        
+        
 
         // GET: usserController
-        public async Task<ActionResult> Index(usser _uss)
+        public async Task<ActionResult> Index()
         {
             List<usser> lista;
             lista = await _interU.ListaU();
@@ -51,9 +49,10 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Competencia(int id)
         {
-            return View();
+            return RedirectToAction("Index","competencia", new {id=id});
+            //Redirige a la acción Index del controlador competencia, pasando el id como parámetro
         }
 
         // GET: usserController/Create
