@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\LogIn_ADO.NET_Version.props" />
-</Project>

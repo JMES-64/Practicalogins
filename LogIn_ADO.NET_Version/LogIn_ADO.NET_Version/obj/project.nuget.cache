@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aZehQxxf36s=",
+  "dgSpecHash": "CbGpFoUEVHk=",
   "success": true,
   "projectFilePath": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Práctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj",
   "expectedPackageFiles": [
@@ -146,8 +146,7 @@
     "C:\\Users\\inmyw\\.nuget\\packages\\system.text.json\\7.0.3\\system.text.json.7.0.3.nupkg.sha512",
     "C:\\Users\\inmyw\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\inmyw\\.nuget\\packages\\system.threading.tasks.dataflow\\8.0.0\\system.threading.tasks.dataflow.8.0.0.nupkg.sha512",
-    "C:\\Users\\inmyw\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\inmyw\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.203\\microsoft.net.sdk.compilers.toolset.9.0.203.nupkg.sha512"
+    "C:\\Users\\inmyw\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

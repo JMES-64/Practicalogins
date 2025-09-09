@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\data\\service\\servicecompetencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\data\\service\\servicecompetencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\views\\competencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\views\\competencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\controllers\\competenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\controllers\\competenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\views\\competencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\views\\competencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,27 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\competencia\\Index.cshtml",
               "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Views\\competencia\\Index.cshtml",
               "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\competencia\\Index.cshtml",
               "RelativeToolTip": "LogIn_ADO.NET_Version\\Views\\competencia\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T05:37:31.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Servicecompetencia.cs",
-              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\Servicecompetencia.cs",
-              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Data\\Service\\Servicecompetencia.cs",
-              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\Servicecompetencia.cs",
-              "RelativeToolTip": "LogIn_ADO.NET_Version\\Data\\Service\\Servicecompetencia.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T02:39:28.463Z",
+              "WhenOpened": "2025-09-09T04:40:39.662Z",
               "EditorCaption": ""
             },
             {
@@ -61,9 +45,10 @@
               "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Controllers\\competenciaController.cs",
               "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\competenciaController.cs",
               "RelativeToolTip": "LogIn_ADO.NET_Version\\Controllers\\competenciaController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAFoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T02:26:38.057Z"
+              "WhenOpened": "2025-09-09T04:38:53.991Z",
+              "EditorCaption": ""
             }
           ]
         }

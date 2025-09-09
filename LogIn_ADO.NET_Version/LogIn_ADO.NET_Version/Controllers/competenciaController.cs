@@ -2,6 +2,7 @@
 using LogIn_ADO.NET_Version.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.ConstrainedExecution;
 
 namespace LogIn_ADO.NET_Version.Controllers
 {
@@ -18,42 +19,74 @@ namespace LogIn_ADO.NET_Version.Controllers
         //Este es el constructor para el sistema
 
         // GET: competenciaController
-        public async Task<ActionResult> Index(int id, competencia com)
+        public async Task<ActionResult> Index(int? id = null)
         {
-            List<competencia> lista;
-            lista = await _interC.ListaC(id);
-            //Llama al método ListaC de la interfaz Intercompetencia para obtener la lista de competencias
-            if (lista != null)
+            try
             {
-                return View(lista);
+                if (id.HasValue && id.Value > 0)
+                {
+                    // Obtener las competencias específicas de este usuario usando tu método existente
+                    var competencias = await _interC.ListaC(id.Value);
+
+                    // IMPORTANTE: Siempre pasar el IDU a la vista, incluso si no hay competencias
+                    ViewData["IDU"] = id.Value;
+
+                    return View(competencias);
+                }
+                else
+                {
+                    // Si no se proporciona ID, mostrar lista vacía o redirigir
+                    return RedirectToAction("Index", "Usser");
+                }
             }
-            return View();
+            catch
+            {
+                // En caso de error, mantener el ID en ViewData si está disponible
+                if (id.HasValue)
+                {
+                    ViewData["IDU"] = id.Value;
+                }
+                return View(new List<competencia>());
+            }
         }
 
-        // GET: competenciaController/Details/5
-        public ActionResult Details(int id)
+        // Método CreateC GET - recibe el IDU como parámetro
+        public ActionResult CreateC(int? idu = null)
         {
-            return View();
-        }
+            // Crear una nueva instancia del modelo con el IDU pre-establecido
+            var model = new competencia();
 
-        // GET: competenciaController/Create
-        public ActionResult Create()
-        {
-            return View();
+            if (idu.HasValue)
+            {
+                model.IDU = idu.Value;
+            }
+
+            return View(model);
         }
 
         // POST: competenciaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateC(competencia com)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    competencia Ncom = await _interC.CreaC(com);
+
+                    // Redirigir al Index con el IDU para mantener el contexto del usuario
+                    return RedirectToAction(nameof(Index), new { id = com.IDU });
+                }
+
+                // Si el modelo no es válido, devolver la vista con errores
+                return View(com);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                // En caso de error, mantener los datos y mostrar la vista
+                ModelState.AddModelError("", "Error al crear la competencia: " + ex.Message);
+                return View(com);
             }
         }
 
