@@ -23,16 +23,19 @@ GO
 
 --Buscar competencias
 CREATE PROCEDURE BuscarC(
-@IDC int
-)AS BEGIN(
-SELECT 
-c.IDC,
-c.Nombre_C,
-c.Comp
-FROM competencia c WHERE @IDC=IDC
+    @IDC int
 )
+AS BEGIN
+    SELECT 
+        c.IDC,
+        c.Nombre_C,
+        c.Comp,
+        c.IDU
+    FROM competencia c 
+    WHERE c.IDC = @IDC
 END
 GO
+
 
 --REGISTRO
 
@@ -115,9 +118,10 @@ CREATE PROCEDURE ListarC
 )
 AS BEGIN
 SELECT
-c.IDU,
+c.IDC,
 c.Nombre_C,
-c.Comp
+c.Comp,
+c.IDU
 FROM competencia c WHERE @IDU = IDU
 END
 GO
@@ -199,3 +203,12 @@ DELETE FROM usser WHERE IDU = @IDU
 END 
 GO
 --Este procedimiento permitirá al owner eliminar al usuario sea admin o no, incluyendo sus competencias
+
+CREATE PROCEDURE EliminaC(
+@IDC int
+)
+AS BEGIN
+DELETE FROM competencia WHERE IDC = @IDC
+END 
+GO
+--Este procedimiento nos permite eliminar unicamente las competencias de un usuario

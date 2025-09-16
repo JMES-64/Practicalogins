@@ -91,25 +91,31 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: competenciaController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var Ecomp = await _interC.Buscador(id);
+            //Llama a la función de buscador para recopilar los datos relacionados a la competencia a editar
+            return View(Ecomp);
         }
 
         // POST: competenciaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(competencia Ecomp)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                competencia NCcomp = await _interC.EditC(Ecomp);
+                //Llama al método EditC de la interfaz InterCompetencia para editar un usuario existente
+                // Redirigir al Index con el IDU para mantener el contexto del usuario
+                return RedirectToAction(nameof(Index), new { Id = NCcomp.IDU});
             }
             catch
             {
                 return View();
             }
         }
+        
 
         // GET: competenciaController/Delete/5
         public ActionResult Delete(int id)

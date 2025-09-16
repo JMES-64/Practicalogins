@@ -23,6 +23,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.IDC)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nombre_C)
             </th>
             <th>
@@ -39,6 +42,9 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.IDC)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Nombre_C)
                 </td>
                 <td>
@@ -48,8 +54,8 @@
                     @Html.DisplayFor(modelItem => item.IDU)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IDU }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IDU })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IDC }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDC })
                 </td>
             </tr>
         }
