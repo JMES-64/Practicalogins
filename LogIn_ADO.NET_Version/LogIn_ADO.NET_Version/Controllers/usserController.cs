@@ -55,6 +55,12 @@ namespace LogIn_ADO.NET_Version.Controllers
             //Redirige a la acción Index del controlador competencia, pasando el id como parámetro
         }
 
+        public async Task<ActionResult> CompetenciaA(int id)
+        {
+            return RedirectToAction("IndexAC", "competencia", new { id = id });
+            //Redirige a la acción Index del controlador competenciaA, pasando el id como parámetro
+        }
+
         // GET: usserController/Create
         public ActionResult CreateU()
         {

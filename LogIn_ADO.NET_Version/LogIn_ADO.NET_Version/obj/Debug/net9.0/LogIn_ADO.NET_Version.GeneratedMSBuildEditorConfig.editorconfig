@@ -32,12 +32,32 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcQ3JlYXRlQy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/CreateCAC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcQ3JlYXRlQ0FDLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/DeleteAC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcRGVsZXRlQUMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/EditAC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcRWRpdEFDLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/competencia/IndexAC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY29tcGV0ZW5jaWFcSW5kZXhBQy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/inmyw/Desktop/Proyectos/PracticaC\#/Práctica log ins/LogIn_ADO.NET_Version/LogIn_ADO.NET_Version/Views/Home/Index.cshtml]

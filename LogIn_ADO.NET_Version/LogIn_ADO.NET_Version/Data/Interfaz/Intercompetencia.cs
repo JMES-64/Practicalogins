@@ -13,6 +13,10 @@ namespace LogIn_ADO.NET_Version.Data.Interfaz
         // Define un método asíncrono para crear una nueva competencia
 
         public Task<competencia> EditC(competencia com);
+        //Define un método asíncrono para editar una competencia
+
+        public Task<competencia> Borra(int id);
+        //Define un método asíncrono para eliminar una competencia
     
     }
 }

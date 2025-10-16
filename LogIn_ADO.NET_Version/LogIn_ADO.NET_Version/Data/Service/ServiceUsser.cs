@@ -237,7 +237,7 @@ namespace LogIn_ADO.NET_Version.Data.Service
         }
 
 
-    public async Task<usser> Borra(int Id)
+        public async Task<usser> Borra(int Id)
         {
             var connector = new Conect();
             //Otorga una variable a la función

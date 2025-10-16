@@ -140,5 +140,27 @@ namespace LogIn_ADO.NET_Version.Data.Service
             }
             return com; // Retorna el objeto 'competencia' editado
         }
+
+        public async Task<competencia> Borra(int id)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+
+            using (var connection = new SqlConnection(connector.GetSQLChain()))
+            {
+                // Crea una conexión a la base de datos usando la cadena de conexión
+                var oComando = new SqlCommand("EliminaC", connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                    // Especifica que el comando es un procedimiento almacenado
+                };
+                oComando.Parameters.AddWithValue("@IDC", id);
+                await connection.OpenAsync();
+                // Abre la conexión de forma asíncrona
+                await oComando.ExecuteNonQueryAsync();
+                // Ejecuta el comando de forma asíncrona
+            }
+            return new competencia { IDC = id }; // Retorna un objeto 'usser' con el ID del usuario eliminado
+        }
     }
 }

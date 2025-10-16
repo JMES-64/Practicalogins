@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LogIn_ADO.NET_Version.Models.competencia>
+@{
+    ViewData["Title"] = "Index";
+    // Obtener el IDU del ViewData (siempre estará disponible desde el controlador)
+    int currentIDU = ViewData["IDU"] != null ? (int)ViewData["IDU"] : 0;
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (currentIDU > 0)
+    {
+        <!-- Usar el IDU del ViewData que siempre está disponible -->
+        <a asp-action="CreateCAC" asp-route-idu="@currentIDU">Create New</a>
+    }
+    else
+    {
+        <a asp-action="CreateCAC">Create New</a>
+    }
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDU)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_C)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Competencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDU)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditAC", new { id = item.IDC }) |
+                    @Html.ActionLink("Delete", "DeleteAC", new { id = item.IDC })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div>
+    <a asp-controller="Usser" asp-action="IndexA">Back to Users</a>
+</div>
