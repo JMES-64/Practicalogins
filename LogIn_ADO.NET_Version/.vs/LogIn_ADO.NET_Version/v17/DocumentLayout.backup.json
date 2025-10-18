@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\data\\service\\serviceusser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\data\\service\\serviceusser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\views\\usser\\createu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\views\\usser\\createu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|c:\\users\\inmyw\\desktop\\proyectos\\practicac#\\pr\u00E1ctica log ins\\login_ado.net_version\\login_ado.net_version\\controllers\\ussercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0920ADC-FDAE-4DF3-A84E-245373991A7C}|LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version.csproj|solutionrelative:login_ado.net_version\\controllers\\ussercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,13 +38,65 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateU.cshtml",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\usser\\CreateU.cshtml",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Views\\usser\\CreateU.cshtml",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\usser\\CreateU.cshtml",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Views\\usser\\CreateU.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T03:35:12.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiceUsser.cs",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Data\\Service\\ServiceUsser.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T02:48:12.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "usserController.cs",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Controllers\\usserController.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T03:48:06.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T03:40:19.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml*",
-              "RelativeToolTip": "LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAswA4AAAAOAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\inmyw\\Desktop\\Proyectos\\PracticaC#\\Pr\u00E1ctica log ins\\LogIn_ADO.NET_Version\\LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "LogIn_ADO.NET_Version\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-16T03:36:34.739Z",
               "EditorCaption": ""

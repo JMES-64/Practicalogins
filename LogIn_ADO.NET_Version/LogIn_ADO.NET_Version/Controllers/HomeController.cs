@@ -8,26 +8,47 @@ namespace LogIn_ADO.NET_Version.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
         private readonly InterUsser _interU;
-        //Conecta con la interfaz
 
-
-        public HomeController(InterUsser IU)
+        // UN SOLO CONSTRUCTOR con todas las dependencias
+        public HomeController(InterUsser IU, ILogger<HomeController> logger)
         {
             _interU = IU;
-            //Asigna la interfaz InterUsser a la variable _interU
-        }
-        //Este es el contructor para el sistema
-
-        public HomeController(ILogger<HomeController> logger)
-        {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(usser _usser)
+        {
+            var Lusser = await _interU.LogIn(_usser.Correo, _usser.Pass);
+            if (Lusser != null)
+            {
+                if (Lusser.Adm == 1 && Lusser.Own == 1)
+                {
+                    return RedirectToAction("IndexA", "usser");
+                    //Si el usuario buscado es administrador y usuario, envíará a las vistas del owner
+                }
+                else if (Lusser.Adm == 1 && Lusser.Own == 0)
+                {
+                    return RedirectToAction("Index", "usser");
+                    //Si el usuario buscado solo es administrador, enviará a las vistas del admin
+                }
+                else {
+                    return RedirectToAction("Privacy", "Home");
+                    //Si solo es un usuario, lo enviará a otra página
+                }
+
+            }
+            else {
+                return View();
+                //Si no encuentra el usuario, solo regresará la vista de log in
+            }
+                
         }
 
         public IActionResult Privacy()

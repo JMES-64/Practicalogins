@@ -1,6 +1,7 @@
 ﻿using LogIn_ADO.NET_Version.Models;
-using System.ComponentModel;
 using Microsoft.Data.SqlClient;
+using System.ComponentModel;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -9,7 +10,50 @@ namespace LogIn_ADO.NET_Version.Data.Service
     public class ServiceUsser : Interfaz.InterUsser
     {
 
-        
+        public async Task<usser> LogIn(string email, string password) {
+            var connector = new Conect();
+            //Otorga la cariable a la función
+            usser user = new usser();
+            //Crea un objeto 'usser' para almacenar el usuario encontrado
+            try
+            {
+                using (var connection = new SqlConnection(connector.GetSQLChain()))
+                {
+                    //Crea la conexión en la base de datos con la cadena de conexión
+                    var oComando = new SqlCommand("Log_In", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                        //Es´pecifica que el comando es un procedimieto almacenado
+                    };
+                    oComando.Parameters.AddWithValue("@Correo", email);
+                    oComando.Parameters.AddWithValue("@Pass", Encrypt.EncryptPassword(password));
+                    //Los comandos que se van a ingresar para la consulta en la BD
+                    await connection.OpenAsync();
+                    // Abre la conexión de forma asíncrona
+                    await using (var oReader = await oComando.ExecuteReaderAsync())
+                    {
+                        while (await oReader.ReadAsync())
+                        {
+                            user.IDU = Convert.ToInt32(oReader["IDU"]);
+                            user.Nombre = oReader["Nombre"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
+                            user.Correo = oReader["Correo"]?.ToString() ?? string.Empty; // Manejo de referencia nula 
+                            user.Pass = oReader["Pass"]?.ToString() ?? string.Empty;
+                            user.Adm = Convert.ToInt32(oReader["Adm"]);
+                            user.Own = Convert.ToInt32(oReader["Own"]);
+                        }
+                        /*
+                        Tiene que tomar todos los datos del usuario para verificar que se trata del usuario correcto
+                        además de verificar que tenga los permisos correctos
+                        */  
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return user; // Retorna el objeto 'usser' vacío en caso de error
+            }
+            return user;
+        }
 
         public async Task<usser> Buscador(int Id) { 
         var connector = new Conect();

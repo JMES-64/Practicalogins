@@ -4,6 +4,9 @@ namespace LogIn_ADO.NET_Version.Data.Interfaz
 {
     public interface InterUsser
     {
+
+        public Task<usser> LogIn(string email, string password);
+        //Define un método asíncrono que buscará al usuario basado en el email y la contraseña; debe devolver el objeto 'usser'
         public Task<usser> Buscador(int Id);
         // Define un método asíncrono que busca un usuario por su ID y devuelve un objeto 'usser'
         public Task<List<usser>> ListaU();

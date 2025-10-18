@@ -1,6 +1,27 @@
 USE DB_PR
 GO
 
+
+--Log In
+CREATE PROCEDURE Log_In(
+@Correo varchar(50),
+@Pass varchar (max)
+)
+AS BEGIN(
+SELECT 
+u.IDU,
+u.Nombre,
+u.Correo,
+u.Pass,
+u.Adm,
+u.Own
+FROM usser u WHERE @Correo=Correo AND @Pass=Pass
+)
+END
+GO
+--Solo regresará el usuario cuya información recibida coincida, de no ser el caso, no regresará nada
+
+
 --BUSCADOR
 
 --Estas funciones buscan permitirnos encontrar un usuario o competencia en específico, con los cuales nos sea posible editar su información
