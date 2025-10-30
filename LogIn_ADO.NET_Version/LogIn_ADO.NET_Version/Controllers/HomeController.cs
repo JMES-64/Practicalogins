@@ -2,6 +2,9 @@ using LogIn_ADO.NET_Version.Data.Interfaz;
 using LogIn_ADO.NET_Version.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace LogIn_ADO.NET_Version.Controllers
 {
@@ -26,8 +29,33 @@ namespace LogIn_ADO.NET_Version.Controllers
         public async Task<ActionResult> Index(usser _usser)
         {
             var Lusser = await _interU.LogIn(_usser.Correo, _usser.Pass);
-            if (Lusser != null)
+            if (Lusser.IDU != 0)
             {
+                var claims = new List<Claim> {
+                  new Claim (ClaimTypes.Name, Lusser.Nombre),
+                  new Claim (ClaimTypes.Email, Lusser.Correo),
+                };
+
+                if (Lusser.Adm == 0 && Lusser.Own == 0)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Basico"));
+                }//Si el usser no es admin ni owner; no da autorización para ninguna página
+                
+                if (Lusser.Adm == 1)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Administrador"));
+                }//Si el usser es admin; permite ver solo la página usuarios
+
+                if (Lusser.Own == 1)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Owner"));
+                }//Si el usser es owner; permite ver la página usuarios y admins y la página usuarios
+
+                var claimsIden = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIden));
+
+
                 if (Lusser.Adm == 1 && Lusser.Own == 1)
                 {
                     return RedirectToAction("IndexA", "usser");
@@ -38,17 +66,26 @@ namespace LogIn_ADO.NET_Version.Controllers
                     return RedirectToAction("Index", "usser");
                     //Si el usuario buscado solo es administrador, enviará a las vistas del admin
                 }
-                else {
+                else
+                {
                     return RedirectToAction("Privacy", "Home");
                     //Si solo es un usuario, lo enviará a otra página
                 }
 
             }
             else {
+                ViewBag.Error = "Usuario no encontrado";
                 return View();
                 //Si no encuentra el usuario, solo regresará la vista de log in
             }
                 
+        }
+
+        public async Task<ActionResult> Log_out() {
+
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+            //Retira las cookies y regresa a la página de log in
         }
 
         public IActionResult Privacy()

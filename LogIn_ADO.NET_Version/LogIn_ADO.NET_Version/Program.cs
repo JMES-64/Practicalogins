@@ -1,7 +1,7 @@
 using LogIn_ADO.NET_Version.Data;
 using LogIn_ADO.NET_Version.Data.Interfaz;
 using LogIn_ADO.NET_Version.Data.Service;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +12,16 @@ builder.Services.AddScoped<InterUsser, ServiceUsser>();
 // Register the InterUsser interface with its implementation ServiceUsser
 builder.Services.AddScoped<Intercompetencia, Servicecompetencia>();
 // Register the Intercompetencia interface with its implementation Servicecompetencia
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie( option =>
+    {
+        option.LoginPath = "/Home/Index"; //Si funciona, pasará la página de log in
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(20); //Desconecta luego de 20 minutos
+        option.AccessDeniedPath = "/Home/Privacy"; //Si no funciona, manda a la página de privacidad
+    }
+    );
+//Este sistema permite guardar el acceso mediante las cookies del navegador
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +34,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

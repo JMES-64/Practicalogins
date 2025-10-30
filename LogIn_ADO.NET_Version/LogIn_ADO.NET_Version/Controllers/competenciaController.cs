@@ -3,9 +3,12 @@ using LogIn_ADO.NET_Version.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.ConstrainedExecution;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace LogIn_ADO.NET_Version.Controllers
 {
+    [Authorize]
     public class competenciaController : Controller
     {
         private readonly Intercompetencia _interC;
@@ -19,6 +22,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         //Este es el constructor para el sistema
 
         // GET: competenciaController
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> Index(int? id = null)
         {
             try
@@ -51,6 +55,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         //Index de los administradores y usuarios
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> IndexAC(int? id = null)
         {
             try
@@ -83,6 +88,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // Método CreateC GET - recibe el IDU como parámetro
+        [Authorize(Roles = "Owner,Administrador")]
         public ActionResult CreateC(int? idu = null)
         {
             // Crear una nueva instancia del modelo con el IDU pre-establecido
@@ -123,6 +129,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         //Crear competencias de los administradores
+        [Authorize(Roles = "Owner")]
         public ActionResult CreateCAC(int? idu = null)
         {
             // Crear una nueva instancia del modelo con el IDU pre-establecido
@@ -163,6 +170,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: competenciaController/Edit/5
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> Edit(int id)
         {
             var Ecomp = await _interC.Buscador(id);
@@ -189,6 +197,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         //Editar competencias de los administradores
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> EditAC(int id)
         {
             var Ecomp = await _interC.Buscador(id);
@@ -215,6 +224,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: competenciaController/Delete/5
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task <ActionResult> Delete(int id)
         {
             var Dcomp = await _interC.Buscador(id);
@@ -240,6 +250,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         //Borrar competencias de los administradores
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> DeleteAC(int id)
         {
             var Dcomp = await _interC.Buscador(id);

@@ -3,9 +3,11 @@ using LogIn_ADO.NET_Version.Data.Interfaz;
 using LogIn_ADO.NET_Version.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LogIn_ADO.NET_Version.Controllers
 {
+    [Authorize]
     public class usserController : Controller
     {
         private readonly InterUsser _interU;
@@ -18,10 +20,11 @@ namespace LogIn_ADO.NET_Version.Controllers
             //Asigna la interfaz InterUsser a la variable _interU}
         }
         //Este es el contructor para el sistema
-        
-        
+
+
 
         // GET: usserController
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> Index()
         {
             List<usser> lista;
@@ -35,6 +38,7 @@ namespace LogIn_ADO.NET_Version.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> IndexA(usser _uss)
         {
             List<usser> lista;
@@ -49,12 +53,14 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Details/5
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> Competencia(int id)
         {
             return RedirectToAction("Index","competencia", new {id=id});
             //Redirige a la acción Index del controlador competencia, pasando el id como parámetro
         }
 
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> CompetenciaA(int id)
         {
             return RedirectToAction("IndexAC", "competencia", new { id = id });
@@ -62,6 +68,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Create
+        [Authorize(Roles = "Owner,Administrador")]
         public ActionResult CreateU()
         {
             return View();
@@ -74,6 +81,10 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
+                /*    
+            TODO: Agregar condicional que llame a la verificación de correo
+            si es true; no creará un usuario, si el false, creará al usuario
+             */
                 usser Nusser = await _interU.CreateU(Cuser);
                 //Llama al método CreateU de la interfaz InterUsser para crear un nuevo usuario
                 return RedirectToAction(nameof(Index));
@@ -85,6 +96,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/CreateA
+        [Authorize(Roles = "Owner")]
         public ActionResult CreateAU()
         {
             return View();
@@ -97,6 +109,10 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
+            /*    
+            TODO: Agregar condicional que llame a la verificación de correo
+            si es true; no creará un usuario, si el false, creará al usuario
+             */
                 usser NAUsser = await _interU.CreateAU(Causser);
                 return RedirectToAction(nameof(IndexA));
             }
@@ -107,8 +123,10 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Edit/5
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> EditU(int id)
         {
+
             var Eusser = await _interU.Buscador(id);
             //Llama a la función de buscador para recopilar los datos relacionados al usuario a editar
             return View(Eusser);
@@ -121,6 +139,10 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
+                /*    
+            TODO: Agregar condicional que llame a la verificación de correo
+            si es true; no creará un usuario, si el false, creará al usuario
+             */
                 usser NUusser = await _interU.EditU(Eusser);
                 //Llama al método EditU de la interfaz InterUsser para editar un usuario existente
                 return RedirectToAction(nameof(Index));
@@ -131,6 +153,7 @@ namespace LogIn_ADO.NET_Version.Controllers
             }
         }
 
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> EditAU(int id)
         {
             var EAusser = await _interU.Buscador(id);
@@ -145,7 +168,11 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
-                usser Ausser= await _interU.EditAU(Usser);
+                /*    
+            TODO: Agregar condicional que llame a la verificación de correo
+            si es true; no creará un usuario, si el false, creará al usuario
+             */
+                usser Ausser = await _interU.EditAU(Usser);
                 //Llama al método EditAU de la interfaz InterUsser para editar un usuario existente
                 return RedirectToAction(nameof(IndexA));
             }
@@ -156,6 +183,7 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         // GET: usserController/Delete/5
+        [Authorize(Roles = "Owner,Administrador")]
         public async Task<ActionResult> Delete(int id)
         {
             var Dusser = await _interU.Buscador(id);
@@ -179,6 +207,7 @@ namespace LogIn_ADO.NET_Version.Controllers
                 return View();
             }
         }
+        [Authorize(Roles = "Owner")]
         public async Task<ActionResult> DeleteAU(int id)
         {
             var Dusser = await  _interU.Buscador(id);
