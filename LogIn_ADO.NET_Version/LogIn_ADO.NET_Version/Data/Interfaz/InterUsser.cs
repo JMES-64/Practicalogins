@@ -22,6 +22,7 @@ namespace LogIn_ADO.NET_Version.Data.Interfaz
         // Define un método asíncrono que actualiza un usuario administrador existente y devuelve el objeto 'usser' actualizado
         public Task<usser> Borra(int Id);
         // Define un método asíncrono que elimina un usuario por su ID y devuelve el objeto 'usser' eliminado
-
+        public Task<usser> Duplicados(string Correo);
+            //Define un método asíncrono que verifica si el correon ingresado ya existe
     }
 }

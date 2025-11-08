@@ -4,7 +4,7 @@
     ViewData["Title"] = "DeleteAU";
 }
 
-<h1>DeleteAU</h1>
+<h1>Borrar</h1>
 
 <h3>¿Seguro que desea eliminar este usuario?</h3>
 <div>
@@ -40,7 +40,7 @@
     
     <form asp-action="DeleteAU">
         <input type="hidden" name="IDU" value="@Model.IDU" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="IndexA">Back to List</a>
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="IndexA">Regresar a la lista de admins y usuarios</a>
     </form>
 </div>

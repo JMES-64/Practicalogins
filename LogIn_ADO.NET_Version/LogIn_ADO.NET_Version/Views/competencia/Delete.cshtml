@@ -4,9 +4,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>Borrar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Está seguro que desea eliminar esta competencia?</h3>
 <div>
     <h4>competencia</h4>
     <hr />
@@ -40,13 +40,13 @@
     <form asp-action="Delete">
         <input type="hidden" name="IDC" value="@Model.IDC" /> 
         <input type="hidden" name="IDU" value="@Model.IDU" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
     </form>
 </div>
 
 <div>
     <!-- Pasar el IDU al volver a la lista -->
-    <a asp-action="Index" asp-route-id="@Model.IDU">Back to List</a>
+    <a asp-action="Index" asp-route-id="@Model.IDU">Volver a la lista</a>
 </div>
 
 @section Scripts {

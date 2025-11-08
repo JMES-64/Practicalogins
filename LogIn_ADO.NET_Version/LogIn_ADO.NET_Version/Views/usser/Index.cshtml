@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Indice</h1>
 
 <p>
     <a asp-action="CreateU">Crear usuario</a>
@@ -39,7 +39,7 @@
             <td>
                 @Html.ActionLink("Editar", "EditU", new { id=item.IDU}) |
                     @Html.ActionLink("Competencias", "Competencia", new { id = item.IDU }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IDU})
+                @Html.ActionLink("Borrar", "Delete", new { id=item.IDU})
             </td>
         </tr>
 }

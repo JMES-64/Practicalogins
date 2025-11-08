@@ -68,7 +68,7 @@ namespace LogIn_ADO.NET_Version.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Privacy", "Home");
+                    return RedirectToAction("Común", "Home");
                     //Si solo es un usuario, lo enviará a otra página
                 }
 
@@ -89,6 +89,11 @@ namespace LogIn_ADO.NET_Version.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Común()
         {
             return View();
         }

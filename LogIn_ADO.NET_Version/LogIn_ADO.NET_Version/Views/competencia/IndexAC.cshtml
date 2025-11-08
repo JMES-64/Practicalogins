@@ -11,11 +11,11 @@
     @if (currentIDU > 0)
     {
         <!-- Usar el IDU del ViewData que siempre está disponible -->
-        <a asp-action="CreateCAC" asp-route-idu="@currentIDU">Create New</a>
+        <a asp-action="CreateCAC" asp-route-idu="@currentIDU">Crear nueva competencia</a>
     }
     else
     {
-        <a asp-action="CreateCAC">Create New</a>
+        <a asp-action="CreateCAC">Crear nueva competencia</a>
     }
 </p>
 
@@ -54,8 +54,8 @@
                     @Html.DisplayFor(modelItem => item.IDU)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditAC", new { id = item.IDC }) |
-                    @Html.ActionLink("Delete", "DeleteAC", new { id = item.IDC })
+                    @Html.ActionLink("Editar", "EditAC", new { id = item.IDC }) |
+                    @Html.ActionLink("Borrar", "DeleteAC", new { id = item.IDC })
                 </td>
             </tr>
         }
@@ -64,5 +64,5 @@
 
 
 <div>
-    <a asp-controller="Usser" asp-action="IndexA">Back to Users</a>
+    <a asp-controller="Usser" asp-action="IndexA">Volver a la lista de usuarios y admins</a>
 </div>

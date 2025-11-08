@@ -4,7 +4,7 @@
     ViewData["Title"] = "CreateCAC";
 }
 
-<h1>CreateCAC</h1>
+<h1>Crear</h1>
 
 <h4>competencia</h4>
 <hr />
@@ -13,12 +13,12 @@
         <form asp-action="CreateCAC">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nombre_C" class="control-label"></label>
+                <label asp-for="Nombre_C" class="control-label">Nombre competencia</label>
                 <input asp-for="Nombre_C" class="form-control" />
                 <span asp-validation-for="Nombre_C" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Competencia" class="control-label"></label>
+                <label asp-for="Competencia" class="control-label">Nivel de competencia</label>
                 <input asp-for="Competencia" class="form-control" />
                 <span asp-validation-for="Competencia" class="text-danger"></span>
             </div>
@@ -29,14 +29,14 @@
                 <span asp-validation-for="IDU" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear competencia" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 <div>
     <!-- Pasar el IDU al volver a la lista -->
-    <a asp-action="IndexAC" asp-route-id="@Model.IDU">Back to List</a>
+    <a asp-action="IndexAC" asp-route-id="@Model.IDU">Volver a la lista</a>
 </div>
 @section Scripts {
     @{

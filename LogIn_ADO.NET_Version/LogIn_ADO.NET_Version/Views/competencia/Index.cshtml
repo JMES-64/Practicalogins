@@ -5,17 +5,17 @@
     int currentIDU = ViewData["IDU"] != null ? (int)ViewData["IDU"] : 0;
 }
 
-<h1>Index</h1>
+<h1>Indice</h1>
 
 <p>
     @if (currentIDU > 0)
     {
         <!-- Usar el IDU del ViewData que siempre está disponible -->
-        <a asp-action="CreateC" asp-route-idu="@currentIDU">Create New</a>
+        <a asp-action="CreateC" asp-route-idu="@currentIDU">Crear nueva competencia</a>
     }
     else
     {
-        <a asp-action="CreateC">Create New</a>
+        <a asp-action="CreateC">Crear nueva competencia</a>
     }
 </p>
 
@@ -54,8 +54,8 @@
                     @Html.DisplayFor(modelItem => item.IDU)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IDC }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IDC })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDC }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.IDC })
                 </td>
             </tr>
         }
@@ -64,5 +64,5 @@
 
 
 <div>
-    <a asp-controller="Usser" asp-action="Index">Back to Users</a>
+    <a asp-controller="Usser" asp-action="Index">Volver a la lista de usuarios</a>
 </div>

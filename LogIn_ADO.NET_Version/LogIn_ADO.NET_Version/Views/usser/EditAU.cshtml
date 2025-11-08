@@ -4,9 +4,9 @@
     ViewData["Title"] = "EditAU";
 }
 
-<h1>EditAU</h1>
+<h1>Editar</h1>
 
-<h4>usser</h4>
+<h4>usuario</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,20 +29,20 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Adm" class="control-label"></label>
+                <label asp-for="Adm" class="control-label">Administrador</label>
                 <input type="checkbox" name="Adm" value="1"
                 @(Model != null && Model.Adm == 1 ? "checked" : "") />
                 <span asp-validation-for="Adm" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="IndexA">Back to List</a>
+    <a asp-action="IndexA">Regresar a la lista de admins y usuarios</a>
 </div>
 
 @section Scripts {

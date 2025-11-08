@@ -42,6 +42,16 @@ FROM usser u WHERE @IDU=IDU
 END
 GO
 
+CREATE PROCEDURE Duplica(
+@Correo varchar(50)
+)
+AS BEGIN(
+SELECT u.Correo
+FROM usser u WHERE @Correo=Correo
+)
+END
+GO
+
 --Buscar competencias
 CREATE PROCEDURE BuscarC(
     @IDC int

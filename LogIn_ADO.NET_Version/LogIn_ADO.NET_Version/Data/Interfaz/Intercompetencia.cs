@@ -17,6 +17,5 @@ namespace LogIn_ADO.NET_Version.Data.Interfaz
 
         public Task<competencia> Borra(int id);
         //Define un método asíncrono para eliminar una competencia
-    
     }
 }

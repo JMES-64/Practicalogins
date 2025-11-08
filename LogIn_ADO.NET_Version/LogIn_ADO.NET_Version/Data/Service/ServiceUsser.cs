@@ -280,6 +280,42 @@ namespace LogIn_ADO.NET_Version.Data.Service
             return cuser; // Retorna el objeto 'usser' editado
         }
 
+        public async Task<usser> Duplicados(string correo)
+        {
+            var connector = new Conect();
+            //Otorga una variable a la función
+            usser user = new usser();
+            // Crea un objeto 'usser' para almacenar el usuario encontrado
+            try
+            {
+                using (var connection = new SqlConnection(connector.GetSQLChain()))
+                {
+                    // Crea una conexión a la base de datos usando la cadena de conexión  
+                    var oComando = new SqlCommand("Duplica", connection)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                        // Especifica que el comando es un procedimiento almacenado
+                    };
+                    oComando.Parameters.AddWithValue("@Correo", correo);
+                    await connection.OpenAsync();
+                    // Abre la conexión de forma asíncrona
+                    await using (var oReader = await oComando.ExecuteReaderAsync())
+                    {
+                        while (await oReader.ReadAsync())
+                        {
+                         user.Correo = oReader["Correo"]?.ToString() ?? string.Empty; // Manejo de referencia nula  
+                            
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return user; // Retorna el objeto 'usser' vacío en caso de error
+            }
+            return user;
+        }
+
 
         public async Task<usser> Borra(int Id)
         {

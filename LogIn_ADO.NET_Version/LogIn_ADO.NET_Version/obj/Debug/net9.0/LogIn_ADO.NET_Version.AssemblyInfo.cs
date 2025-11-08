@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LogIn_ADO.NET_Version")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+108308c1c4f1c42b7b5c2fed1cbbc0b96de35b30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0551c89e3ff64b79cedf6805fda348cb63ce1e6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("LogIn_ADO.NET_Version")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LogIn_ADO.NET_Version")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

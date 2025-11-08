@@ -1,9 +1,10 @@
 ﻿using LogIn_ADO.NET_Version.Data;
 using LogIn_ADO.NET_Version.Data.Interfaz;
 using LogIn_ADO.NET_Version.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
+using System.Runtime.ConstrainedExecution;
 
 namespace LogIn_ADO.NET_Version.Controllers
 {
@@ -85,9 +86,16 @@ namespace LogIn_ADO.NET_Version.Controllers
             TODO: Agregar condicional que llame a la verificación de correo
             si es true; no creará un usuario, si el false, creará al usuario
              */
-                usser Nusser = await _interU.CreateU(Cuser);
-                //Llama al método CreateU de la interfaz InterUsser para crear un nuevo usuario
-                return RedirectToAction(nameof(Index));
+                if (_interU.Duplicados(Cuser.Correo)!=null)
+                {
+                    return View();
+                }
+                else
+                {
+                    usser Nusser = await _interU.CreateU(Cuser);
+                    //Llama al método CreateU de la interfaz InterUsser para crear un nuevo usuario
+                    return RedirectToAction(nameof(Index));
+                }
             }
             catch
             {
@@ -109,12 +117,15 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
-            /*    
-            TODO: Agregar condicional que llame a la verificación de correo
-            si es true; no creará un usuario, si el false, creará al usuario
-             */
-                usser NAUsser = await _interU.CreateAU(Causser);
-                return RedirectToAction(nameof(IndexA));
+                if (_interU.Duplicados(Causser.Correo) != null)
+                {
+                    return View();
+                }
+                else
+                {
+                    usser NAUsser = await _interU.CreateAU(Causser);
+                    return RedirectToAction(nameof(IndexA));
+                }
             }
             catch
             {
@@ -139,13 +150,16 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
-                /*    
-            TODO: Agregar condicional que llame a la verificación de correo
-            si es true; no creará un usuario, si el false, creará al usuario
-             */
-                usser NUusser = await _interU.EditU(Eusser);
-                //Llama al método EditU de la interfaz InterUsser para editar un usuario existente
-                return RedirectToAction(nameof(Index));
+                if (_interU.Duplicados(Eusser.Correo) != null)
+                {
+                    return View();
+                }
+                else
+                {
+                    usser NUusser = await _interU.EditU(Eusser);
+                    //Llama al método EditU de la interfaz InterUsser para editar un usuario existente
+                    return RedirectToAction(nameof(Index));
+                }
             }
             catch
             {
@@ -168,13 +182,16 @@ namespace LogIn_ADO.NET_Version.Controllers
         {
             try
             {
-                /*    
-            TODO: Agregar condicional que llame a la verificación de correo
-            si es true; no creará un usuario, si el false, creará al usuario
-             */
-                usser Ausser = await _interU.EditAU(Usser);
-                //Llama al método EditAU de la interfaz InterUsser para editar un usuario existente
-                return RedirectToAction(nameof(IndexA));
+                if (_interU.Duplicados(Usser.Correo) != null)
+                {
+                    return View();
+                }
+                else
+                {
+                    usser Ausser = await _interU.EditAU(Usser);
+                    //Llama al método EditAU de la interfaz InterUsser para editar un usuario existente
+                    return RedirectToAction(nameof(IndexA));
+                }
             }
             catch
             {
